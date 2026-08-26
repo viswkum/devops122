@@ -1,0 +1,39 @@
+{
+  "name": "type-orm",
+  "version": "1.0.0",
+  "description": "How-to",
+  "main": "index.js",
+  "scripts": {
+    "migrations-create-table": "node dist/src/create-migrations-table.js",
+    "migrations-drop-table": "node dist/src/drop-migrations-table.js",
+    "migrations-run": "npm run typeorm migration:run -- -d ./dist/src/data-source --transaction none",
+    "migrations-revert": "npm run typeorm migration:revert -- -d ./dist/src/data-source --transaction none",
+    "build:compile": "tsc --build",
+    "build": "npm-run-all build:compile",
+    "clean": "rm -rf build && rm -rf dist",
+    "typeorm": "ts-node ./node_modules/typeorm/cli.js",
+    "start": "node dist/index.js",
+    "dev": "npm run clean && npm run build && npm run start",
+    "test": "npm run clean && npm run build && node --experimental-vm-modules node_modules/jest/bin/jest.js dist/test"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^26.2.0",
+    "jest": "^30.4.2",
+    "reflect-metadata": "^0.2.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@aws-sdk/dsql-signer": "^3.1116.0",
+    "assert": "^2.1.0",
+    "npm-run-all": "^4.1.5",
+    "pg": "^8.23.0",
+    "ts-node": "^10.9.2",
+    "typeorm": "^0.3.28"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
