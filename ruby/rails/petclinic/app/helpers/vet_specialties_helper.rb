@@ -1,2 +1,0 @@
-module VetSpecialtiesHelper
-end
